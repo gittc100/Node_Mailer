@@ -9,6 +9,10 @@ configureMiddleware(server);
 
 server.use("/send", mailerRouter);
 
+server.get("/", (req, res) => {
+  res.status(200).json("Sanity Check ITS WORKING");
+});
+
 setInterval(function() {
   server.get("/", (req, res) => {
     res.status(200).json("Keep her going!");
