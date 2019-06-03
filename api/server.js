@@ -1,6 +1,6 @@
 const express = require("express");
 const configureMiddleware = require("./middleware/middleware.js");
-require('dotenv').config();
+require("dotenv").config();
 
 const mailerRouter = require("./routes/mailerRouter.js");
 
@@ -9,9 +9,10 @@ configureMiddleware(server);
 
 server.use("/send", mailerRouter);
 
-server.get("/", (req, res) => {
-  res.status(200).json("Sanity Check ITS WORKING");
-  console.log("Sanity Check ITS WORKING!!!");
-});
+setInterval(function() {
+  server.get("/", (req, res) => {
+    res.status(200).json("Keep her going!");
+  });
+}, 5000); // every 5 minutes (300000)
 
 module.exports = server;
