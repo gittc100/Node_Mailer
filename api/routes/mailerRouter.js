@@ -17,13 +17,16 @@ router.post("/", (req, res) => {
   var mailOptions = {
     to: "tomclaydon102@gmail.com",
     subject: "Contact Form Message",
-    from: "Contact Form Request:" + "<" + process.env.USER_NAME + ">" + postInfo.subject,
+    from: "Portfolio Contact Form Request: <tomclaydonportfolio@gmail.com>",
     html:
       "From: " +
       postInfo.name +
       "<br>" +
       "User's email: " +
       postInfo.email +
+      "<br>" +
+      "Subject: " +
+      postInfo.subject +
       "<br>" +
       "Message: " +
       postInfo.description
